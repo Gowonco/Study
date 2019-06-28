@@ -15,7 +15,9 @@ public class restClient {
         RestTemplate rest=new RestTemplate(factory);
        // String content=rest.getForObject("http://localhost:8080/json/user",String.class);
 
-        User user=rest.getForObject("http://localhost:8080/json/user",User.class);
+        // 根据url请求获取信息
+        User user=rest.getForObject("http://localhost:8083/json/user",User.class);
+
         System.out.println( user);
 
 
