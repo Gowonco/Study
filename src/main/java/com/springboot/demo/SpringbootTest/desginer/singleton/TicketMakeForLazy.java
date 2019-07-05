@@ -4,9 +4,9 @@ public class TicketMakeForLazy {
     public static TicketMakeForLazy single = null;
     public int num = 10000;
 
-    public  static synchronized TicketMakeForLazy getInstance() {
+    public static synchronized TicketMakeForLazy getInstance() {
         if (single == null) {
-            single =  new TicketMakeForLazy();
+            single = new TicketMakeForLazy();
         }
 
         return single;
@@ -15,7 +15,7 @@ public class TicketMakeForLazy {
     public static TicketMakeForLazy getInstanceBlock() {
         if (single == null) {
             synchronized (TicketMakeForLazy.class) {
-                if (single==null) {
+                if (single == null) {
                     single = new TicketMakeForLazy();
                 }
 
@@ -29,7 +29,8 @@ public class TicketMakeForLazy {
     }
 
     public static void main(String[] args) {
-        for (int i=0;i<100;i++) {
+        int a = 1;
+        for (int i = 0; i < 100; i++) {
             System.out.println(TicketMakeForLazy.getInstanceBlock().getNextTicketNum());
         }
     }
